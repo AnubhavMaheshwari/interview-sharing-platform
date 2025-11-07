@@ -13,11 +13,27 @@ connectDB();
 // Passport Config
 require('./config/passport')(passport);
 
-// Middleware
+// Middleware - UPDATED CORS CONFIGURATION
+const allowedOrigins = [
+  process.env.CLIENT_URL,           // Production URL from environment
+  'http://localhost:3000',          // Local development
+  'http://localhost:3001',          // Alternative local port
+];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps, Postman, curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
