@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margins on headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure buttons and inputs are accessible on mobile */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+/* Prevent text overflow */
+p, span, div {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Remove focus outline on mouse click but keep it for keyboard */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Responsive container utility */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Prevent layout shift */
+body {
+  overflow-x: hidden;
+}
+/* Touch-friendly tap targets */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Improve touch scrolling on iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text size adjustment on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Better tap highlight color */
+* {
+  -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
+}

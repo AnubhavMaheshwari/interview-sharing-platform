@@ -1,0 +1,169 @@
+.interview-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.question-input {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.question-input input {
+  flex: 1;
+}
+
+.btn-remove {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.btn-remove:hover {
+  background: #dc2626;
+}
+
+.btn-add {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.3s;
+}
+
+.btn-add:hover {
+  background: #059669;
+}
+
+.btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg,  #e6e7e863 0%, #00329f 100%);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .interview-form {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .interview-form {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .question-input {
+    flex-direction: column;
+  }
+
+  .btn-remove {
+    width: 100%;
+  }
+
+  .btn-submit {
+    font-size: 1rem;
+    padding: 0.875rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .interview-form {
+    padding: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.9rem;
+  }
+
+  .btn-submit {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,289 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  gap: 1.5rem;
+}
+
+.user-welcome {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #667eea;
+  flex-shrink: 0;
+}
+
+.user-welcome h1 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.75rem;
+  word-break: break-word;
+}
+
+.user-welcome p {
+  margin: 0.5rem 0 0 0;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.btn-create {
+  background: linear-gradient(135deg, #667eea 0%, #481d73 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.btn-create:hover {
+  transform: translateY(-2px);
+}
+
+.stats-grid {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-card.success {
+  border-left: 4px solid #10b981;
+}
+
+.stat-card.danger {
+  border-left: 4px solid #ef4444;
+}
+
+.stat-card.warning {
+  border-left: 4px solid #f59e0b;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+}
+
+.stat-info h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1f2937;
+}
+
+.stat-info p {
+  margin: 0.25rem 0 0 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.my-interviews-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.my-interviews-section h2 {
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+  font-size: 1.75rem;
+}
+
+.interview-card-wrapper {
+  position: relative;
+}
+
+.btn-delete {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.interview-card-wrapper:hover .btn-delete {
+  opacity: 1;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
+}
+
+.no-interviews {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: #5568d3;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    padding: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+
+  .stat-info h3 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .user-welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-welcome h1 {
+    font-size: 1.5rem;
+  }
+
+  .user-welcome p {
+    font-size: 0.9rem;
+  }
+
+  .dashboard-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .btn-create {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+  }
+
+  .stat-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .my-interviews-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-delete {
+    opacity: 1;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .dashboard-header {
+    padding: 1rem;
+  }
+
+  .user-welcome h1 {
+    font-size: 1.25rem;
+  }
+
+  .dashboard-avatar {
+    width: 50px;
+    height: 50px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .my-interviews-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .btn-primary {
+    padding: 0.875rem 1.5rem;
+  }
+}
