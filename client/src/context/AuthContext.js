@@ -38,8 +38,8 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   };
 
-const login = () => {
-    window.location.href = 'https://interview-sharing-platform-1.onrender.com/auth/google';
+  const login = () => {
+    window.location.href = 'http://localhost:5000/auth/google';
   };
 
   const logout = () => {
