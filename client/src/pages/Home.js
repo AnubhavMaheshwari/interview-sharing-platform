@@ -15,30 +15,34 @@ const Home = () => {
     fetchInterviews();
   }, []);
 
-  const fetchInterviews = async () => {
-    try {
-      const res = await API.get('/api/interviews');
-      setInterviews(res.data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching interviews:', error);
-      setLoading(false);
-    }
-  };
+const fetchInterviews = async () => {
+  try {
+    const res = await API.get('/api/interviews');
+    // Add this check to ensure it's always an array
+    setInterviews(Array.isArray(res.data) ? res.data : []);
+    setLoading(false);
+  } catch (error) {
+    console.error('Error fetching interviews:', error);
+    setInterviews([]); // Add this line - set empty array on error
+    setLoading(false);
+  }
+};
 
-  const filteredInterviews = interviews.filter(interview => {
-    const matchesSearch = 
-      interview.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      interview.position.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesDifficulty = 
-      filterDifficulty === 'All' || interview.difficulty === filterDifficulty;
-    
-    const matchesOutcome = 
-      filterOutcome === 'All' || interview.outcome === filterOutcome;
-    
-    return matchesSearch && matchesDifficulty && matchesOutcome;
-  });
+// Add Array.isArray check before filter
+const filteredInterviews = (Array.isArray(interviews) ? interviews : []).filter(interview => {
+  
+  const matchesSearch = 
+    interview.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    interview.position.toLowerCase().includes(searchTerm.toLowerCase());
+  
+  const matchesDifficulty = 
+    filterDifficulty === 'All' || interview.difficulty === filterDifficulty;
+  
+  const matchesOutcome = 
+    filterOutcome === 'All' || interview.outcome === filterOutcome;
+  
+  return matchesSearch && matchesDifficulty && matchesOutcome;
+});
 
   if (loading) {
     return (

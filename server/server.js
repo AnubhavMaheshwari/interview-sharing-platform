@@ -13,11 +13,31 @@ connectDB();
 // Passport Config
 require('./config/passport')(passport);
 
-// Middleware
+// Middleware - UPDATED CORS CONFIGURATION
+// Middleware - UPDATED CORS CONFIGURATION
+const allowedOrigins = [
+  process.env.CLIENT_URL,           // Production URL from environment
+  'http://localhost:3000',          // Local development
+  'http://localhost:3001',          // Alternative local port
+  'http://localhost:4000',          // ✅ Add this line for your running frontend
+  'https://interview-sharing-platform.vercel.app', // ✅ Deployed frontend
+];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow non-browser tools
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log('❌ Blocked by CORS:', origin); // helpful for debugging
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
+app.options('*', cors());
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
