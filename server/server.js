@@ -14,29 +14,25 @@ connectDB();
 require('./config/passport')(passport);
 
 // Middleware - UPDATED CORS CONFIGURATION
-// Middleware - UPDATED CORS CONFIGURATION
 const allowedOrigins = [
   process.env.CLIENT_URL,           // Production URL from environment
   'http://localhost:3000',          // Local development
   'http://localhost:3001',          // Alternative local port
-  'http://localhost:4000',          // ✅ Add this line for your running frontend
-  'https://interview-sharing-platform.vercel.app', // ✅ Deployed frontend
 ];
 
 app.use(cors({
   origin: function(origin, callback) {
-    if (!origin) return callback(null, true); // allow non-browser tools
+    // Allow requests with no origin (like mobile apps, Postman, curl)
+    if (!origin) return callback(null, true);
+    
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.log('❌ Blocked by CORS:', origin); // helpful for debugging
       callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true,
+  credentials: true
 }));
-app.options('*', cors());
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
